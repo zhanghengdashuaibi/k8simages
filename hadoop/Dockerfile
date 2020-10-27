@@ -71,6 +71,7 @@ RUN set -eux && \
     mkdir -p /dfs/data && \
     mkdir -p /hadoop/logs && \
     chown -R hdfs:hadoop /dfs/name && \
+    chown -R hdfs:hadoop /dfs/data && \
     chgrp -R hadoop /hadoop/logs && \
     chmod -R 0770 /hadoop/logs && \
     mkdir -p /root/.ssh \
