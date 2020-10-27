@@ -68,6 +68,7 @@ RUN set -eux && \
     useradd -g hadoop hdfs && \
     useradd -g hadoop yarn && \
     mkdir -p /dfs/name && \
+    mkdir -p /dfs/data && \
     mkdir -p /hadoop/logs && \
     chown -R hdfs:hadoop /dfs/name && \
     chgrp -R hadoop /hadoop/logs && \
