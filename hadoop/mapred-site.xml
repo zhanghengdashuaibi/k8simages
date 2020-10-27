@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <!--指定 mapreduce 作业运行在 yarn 上-->
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+</configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <!-- 指定 HDFS 副本的数量，默认 3 -->
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>
+    <property>
+        <!-- namenode 节点数据（即元数据）的存放位置，可以指定多个目录实现容错，多个目录用逗号分隔 -->
+        <name>dfs.namenode.name.dir</name>
+        <value>/dfs/name</value>
+    </property>
+    <property>
+        <!-- datanode 节点数据（即数据块）的存放位置 -->
+        <name>dfs.datanode.data.dir</name>
+        <value>/dfs/data</value>
+    </property>
+    <property>
+        <!-- 取消 DataNode 节点所在主机的主机名（DNS）与对应IP地址的检查机制 -->
+        <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+        <value>false</value>
+    </property>
+</configuration>
