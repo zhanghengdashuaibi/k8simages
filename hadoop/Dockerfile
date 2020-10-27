@@ -50,12 +50,14 @@ RUN set -eux && \
     rm -rf /var/cache/yum
 
 COPY entrypoint.sh /
-COPY ./core-site.xml /hadoop/etc/hadoop/
-COPY ./hdfs-site.xml /hadoop/etc/hadoop/
-COPY ./yarn-site.xml /hadoop/etc/hadoop/
-COPY ./mapred-site.xml /hadoop/etc/hadoop/
-COPY ./hadoop.sh /etc/profile.d/
-COPY ./config /root/.ssh/
+COPY init.sh /
+COPY ./core-site.xml /hadoop/etc/hadoop/core-site.xml
+COPY ./hdfs-site.xml /hadoop/etc/hadoop/hdfs-site.xml
+COPY ./yarn-site.xml /hadoop/etc/hadoop/yarn-site.xml
+COPY ./mapred-site.xml /hadoop/etc/hadoop/mapred-site.xml
+COPY ./hadoop.sh /etc/profile.d/hadoop.sh
+COPY ./config /root/.ssh/config
+COPY ./hadoop-env.sh /hadoop/etc/hadoop/hadoop-env.sh
 
 RUN set -eux && \
     # Hadoop 1.x
@@ -76,6 +78,7 @@ RUN set -eux && \
     chown hdfs /home/hdfs/.ssh && \
     chown yarn /home/yarn/.ssh && \
     chmod 777  /entrypoint.sh && \
+    chmod 777  /init.sh
     chmod 0700 /root/.ssh \
                /home/hdfs/.ssh \
                /home/yarn/.ssh
@@ -90,4 +93,5 @@ ENV YARN_NODEMANAGER_USER=yarn
 # Hadoop 3.0 changed ports :-(
 EXPOSE 8020 8042 8088 9000 9868 9870 10020 19888 50010 50020 50090
 
-CMD ["/entrypoint.sh"]
+#CMD ["/entrypoint.sh"]
+CMD ["/init.sh"]
