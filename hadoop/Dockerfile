@@ -75,6 +75,7 @@ RUN set -eux && \
           /home/yarn/.ssh && \
     chown hdfs /home/hdfs/.ssh && \
     chown yarn /home/yarn/.ssh && \
+    chmod 777  /entrypoint.sh && \
     chmod 0700 /root/.ssh \
                /home/hdfs/.ssh \
                /home/yarn/.ssh
