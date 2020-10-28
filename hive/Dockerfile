@@ -47,6 +47,7 @@ RUN set -eux && \
     rm -rf /var/cache/yum
 
 RUN set -eux && \
+    yum install -y wget && \
 	wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O $HIVE_HOME/lib/mysql-connector-java-8.0.20.jar && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
