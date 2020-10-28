@@ -49,10 +49,11 @@ RUN set -eux && \
 RUN set -eux && \
     yum install -y wget && \
 	wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O $HIVE_HOME/lib/mysql-connector-java-8.0.20.jar && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
+	mkdir -p hive && \
 	mv apache-hive-$HIVE_VERSION-bin hive && \
 	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
+	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O $HIVE_HOME/lib/mysql-connector-java-8.0.20.jar && \
 	yum remove -y wget && \
 	yum clean all && \
 	rm -rf /var/lib/apt/lists/*
