@@ -46,14 +46,14 @@ RUN set -eux && \
     yum clean all && \
     rm -rf /var/cache/yum
 
-RUN apt-get update && apt-get install -y wget procps && \
+RUN set -eux && \
 	wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O $HIVE_HOME/lib/mysql-connector-java-8.0.20.jar && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	mv apache-hive-$HIVE_VERSION-bin hive && \
 	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	apt-get --purge remove -y wget && \
-	apt-get clean && \
+	yum remove -y wget && \
+	yum clean all && \
 	rm -rf /var/lib/apt/lists/*
 
 #ENV JAVA_HOME="${JAVA_HOME:-/usr}"
