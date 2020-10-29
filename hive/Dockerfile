@@ -37,7 +37,8 @@ RUN set -eux && \
     test -d "hadoop-$HADOOP_VERSION" && \
     ln -sv "hadoop-$HADOOP_VERSION" hadoop && \
     mkdir /etc/hadoop && \
-    mkdir /etc/bootstrap && \
+    mkdir -p /root/bootstrap && \
+    chmod -R 0770 /root/bootstrap && \
     ln -s /hadoop/etc/hadoop /etc/hadoop/conf && \
     rm -fv "$TAR" && \
     { rm -rf hadoop/share/doc; : ; } && \
