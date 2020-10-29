@@ -25,6 +25,8 @@ WORKDIR /
 RUN set -eux && \
     yum install -y openssh-server openssh-clients tar which
 
+COPY bootstrap.sh /
+
 RUN set -eux && \
     yum install -y wget hostname && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
