@@ -14,7 +14,7 @@
 FROM harisekhon/centos-java:latest
 MAINTAINER Hari Sekhon (https://www.linkedin.com/in/harisekhon)
 
-ENV HIVE_HOME /hive
+ENV HIVE_HOME /apache-hive-3.1.2-bin
 ARG HADOOP_VERSION=3.2.1
 ARG HIVE_VERSION=3.1.2
 
@@ -60,5 +60,6 @@ RUN set -eux && \
 
 #ENV JAVA_HOME="${JAVA_HOME:-/usr}"
 ENV HADOOP_HOME /hadoop
+ENV HADOOP_CONF_DIR /hadoop/etc/hadoop
 ENV HIVE_HOME /apache-hive-3.1.2-bin
 #ENV PATH $JAVA_HOME/bin:$PATH
