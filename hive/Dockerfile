@@ -70,4 +70,4 @@ ENV HADOOP_HOME /hadoop
 ENV HADOOP_CONF_DIR /hadoop/etc/hadoop
 ENV HIVE_HOME /apache-hive-3.1.2-bin
 #ENV PATH $JAVA_HOME/bin:$PATH
-CMD ["/bootstrap.sh"]
+#CMD ["/bootstrap.sh"]
