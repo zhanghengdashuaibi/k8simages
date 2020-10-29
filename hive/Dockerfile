@@ -37,6 +37,7 @@ RUN set -eux && \
     test -d "hadoop-$HADOOP_VERSION" && \
     ln -sv "hadoop-$HADOOP_VERSION" hadoop && \
     mkdir /etc/hadoop && \
+    chmod 777 /bootstrap.sh && \
     mkdir -p /root/bootstrap && \
     chown -R root:root /root/bootstrap && \
     chmod -R 0770 /root/bootstrap && \
@@ -65,3 +66,4 @@ ENV HADOOP_HOME /hadoop
 ENV HADOOP_CONF_DIR /hadoop/etc/hadoop
 ENV HIVE_HOME /apache-hive-3.1.2-bin
 #ENV PATH $JAVA_HOME/bin:$PATH
+CMD ["/bootstrap.sh"]
