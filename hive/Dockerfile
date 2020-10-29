@@ -56,6 +56,8 @@ RUN set -eux && \
     yum install -y wget && \
 	wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
+	copy /hadoop/share/hadoop/common/lib/guava-27.0-jre.jar /apache-hive-3.1.2-bin/lib/guava-27.0-jre.jar
+	rm -rf /apache-hive-3.1.2-bin/lib/guava-19.0.jar
 #	mv apache-hive-$HIVE_VERSION-bin hive && \
 	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O /apache-hive-3.1.2-bin/lib/mysql-connector-java-8.0.20.jar && \
