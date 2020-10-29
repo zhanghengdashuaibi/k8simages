@@ -38,6 +38,7 @@ RUN set -eux && \
     ln -sv "hadoop-$HADOOP_VERSION" hadoop && \
     mkdir /etc/hadoop && \
     mkdir -p /root/bootstrap && \
+    chown -R root:root /root/bootstrap && \
     chmod -R 0770 /root/bootstrap && \
     ln -s /hadoop/etc/hadoop /etc/hadoop/conf && \
     rm -fv "$TAR" && \
