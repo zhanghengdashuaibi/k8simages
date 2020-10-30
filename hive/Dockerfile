@@ -54,7 +54,7 @@ RUN set -eux && \
 
 RUN set -eux && \
     yum install -y wget && \
-	wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
+	wget https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	ln -sv "apache-hive-3.1.2-bin" hive && \
 	cp /hadoop/share/hadoop/common/lib/guava-27.0-jre.jar /hive/lib/ && \
