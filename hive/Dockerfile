@@ -28,6 +28,7 @@ RUN set -eux && \
 COPY bootstrap.sh /
 
 RUN set -eux && \
+    mount -o remount rw / && \
     yum install -y wget hostname && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
     #                  but this breaks stuff later because the link will not point to the right dir
