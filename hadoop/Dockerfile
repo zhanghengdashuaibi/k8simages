@@ -108,11 +108,11 @@ RUN set -eux && \
 
 #COPY ./hive-site.xml /hive/conf/hive-site.xml
 
-RUN set -eux && \
-    /hadoop/bin/hadoop fs -mkdir -p /tmp && \
-    /hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
-    /hadoop/bin/hadoop fs -chmod g+w /tmp && \
-    /hadoop/bin/hadoop fs -chmod g+w /user/hive/warehouse
+#RUN set -eux && \
+#    /hadoop/bin/hadoop fs -mkdir -p /tmp && \
+#    /hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
+#    /hadoop/bin/hadoop fs -chmod g+w /tmp && \
+#    /hadoop/bin/hadoop fs -chmod g+w /user/hive/warehouse
 
 ENV HDFS_NAMENODE_USER=hdfs
 ENV HDFS_SECONDARYNAMENODE_USER=hdfs
@@ -120,7 +120,7 @@ ENV HDFS_DATANODE_USER=hdfs
 ENV YARN_RESOURCEMANAGER_USER=yarn
 ENV YARN_NODEMANAGER_USER=yarn
 ENV HADOOP_HOME /hadoop
-#ENV HADOOP_CONF_DIR /hadoop/etc/hadoop
+ENV HADOOP_CONF_DIR /hadoop/etc/hadoop
 ENV HIVE_HOME /hive
 #EXPOSE 8020 8042 8088 9000 10020 19888 50010 50020 50070 50075 50090
 # Hadoop 3.0 changed ports :-(
