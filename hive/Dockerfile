@@ -14,7 +14,7 @@
 FROM harisekhon/centos-java:latest
 MAINTAINER Hari Sekhon (https://www.linkedin.com/in/harisekhon)
 
-ENV HIVE_HOME /apache-hive-3.1.2-bin
+ENV HIVE_HOME /hive
 ARG HADOOP_VERSION=3.2.1
 ARG HIVE_VERSION=3.1.2
 
@@ -56,8 +56,9 @@ RUN set -eux && \
     yum install -y wget && \
 	wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	cp /hadoop/share/hadoop/common/lib/guava-27.0-jre.jar /apache-hive-3.1.2-bin/lib/ && \
-	rm -rf /apache-hive-3.1.2-bin/lib/guava-19.0.jar && \
+	ln -sv "apache-hive-3.1.2-bin" hive && \
+	cp /hadoop/share/hadoop/common/lib/guava-27.0-jre.jar /hive/lib/ && \
+	rm -rf /hive/lib/guava-19.0.jar && \
 #	mv apache-hive-$HIVE_VERSION-bin hive && \
 	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O /apache-hive-3.1.2-bin/lib/mysql-connector-java-8.0.20.jar && \
@@ -68,6 +69,6 @@ RUN set -eux && \
 #ENV JAVA_HOME="${JAVA_HOME:-/usr}"
 ENV HADOOP_HOME /hadoop
 ENV HADOOP_CONF_DIR /hadoop/etc/hadoop
-ENV HIVE_HOME /apache-hive-3.1.2-bin
+ENV HIVE_HOME /hive
 #ENV PATH $JAVA_HOME/bin:$PATH
 CMD ["/bootstrap.sh"]
