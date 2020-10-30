@@ -63,15 +63,15 @@ RUN set -eux && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN set -eux && \
-    $HADOOP_HOME/bin/hadoop fs -mkdir -p /tmp && \
-    $HADOOP_HOME/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
-    $HADOOP_HOME/bin/hadoop fs -chmod g+w /tmp && \
-    $HADOOP_HOME/bin/hadoop fs -chmod g+w /user/hive/warehouse && \
-    $HIVE_HOME/bin/schematool -dbType mysql -initSchema --verbose &> $HADOOP_CONF_DIR/hive-metastore-initialization.out && \
-    $HIVE_HOME/bin/hiveserver2 & && \
-    $HIVE_HOME/bin/hive --service metastore & && \
-    cp $HIVE_HOME/conf/hive-env.sh.template $HIVE_HOME/conf/hive-env.sh && \
-    echo "export HADOOP_CLIENT_OPTS=\"-Xmx512m -XX:MaxPermSize=1024m \$HADOOP_CLIENT_OPTS\"" >> $HIVE_HOME/conf/hive-env.sh && \
+    /hadoop/bin/hadoop fs -mkdir -p /tmp && \
+    /hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
+    /hadoop/bin/hadoop fs -chmod g+w /tmp && \
+    /hadoop/bin/hadoop fs -chmod g+w /user/hive/warehouse && \
+    /hive/bin/schematool -dbType mysql -initSchema --verbose &> /hadoop/etc/hadoop/hive-metastore-initialization.out && \
+    /hive/bin/hiveserver2 & && \
+    /hive/bin/hive --service metastore & && \
+    cp /hive/conf/hive-env.sh.template /hive/conf/hive-env.sh && \
+    echo "export HADOOP_CLIENT_OPTS=\"-Xmx512m -XX:MaxPermSize=1024m \$HADOOP_CLIENT_OPTS\"" >> /hive/conf/hive-env.sh && \
     # keep running
     sleep infinity
 
