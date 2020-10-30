@@ -62,6 +62,9 @@ RUN set -eux && \
 	yum clean all && \
 	rm -rf /var/lib/apt/lists/*
 
+
+COPY ./hive-site.xml /hive/conf/hive-site.xml
+
 RUN set -eux && \
     /hadoop/bin/hadoop fs -mkdir -p /tmp && \
     /hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
