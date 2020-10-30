@@ -28,8 +28,7 @@ RUN set -eux && \
 COPY bootstrap.sh /
 
 RUN set -eux && \
-    mount -o remount rw / && \
-    yum install -y wget hostname && \
+    yum install -y wget && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
     #                  but this breaks stuff later because the link will not point to the right dir
     #                  (and is also the wrong version for the tag)
@@ -41,9 +40,6 @@ RUN set -eux && \
     ln -sv "hadoop-$HADOOP_VERSION" hadoop && \
     mkdir /etc/hadoop && \
     chmod 777 /bootstrap.sh && \
-    mkdir -p /root/bootstrap && \
-    chown -R root:root /root/bootstrap && \
-    chmod -R 0770 /root/bootstrap && \
     ln -s /hadoop/etc/hadoop /etc/hadoop/conf && \
     rm -fv "$TAR" && \
     { rm -rf hadoop/share/doc; : ; } && \

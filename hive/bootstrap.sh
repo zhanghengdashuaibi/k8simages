@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
     set -x
+    sudo
 #    cd /root/bootstrap
 
     # Apply custom config file context
