@@ -66,7 +66,7 @@ RUN set -eux && \
     /hadoop/bin/hadoop fs -mkdir -p /tmp && \
     /hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
     /hadoop/bin/hadoop fs -chmod g+w /tmp && \
-    /hadoop/bin/hadoop fs -chmod g+w /user/hive/warehouse && \
+    /hadoop/bin/hadoop fs -chmod g+w /user/hive/warehouse
 #    /hive/bin/schematool -dbType mysql -initSchema --verbose &> /hadoop/etc/hadoop/hive-metastore-initialization.out && \
 #    /hive/bin/hiveserver2 & && \
 #    /hive/bin/hive --service metastore & && \
