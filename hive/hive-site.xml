@@ -7,7 +7,7 @@
     </property>
     <property>
         <name>javax.jdo.option.ConnectionPassword</name>
-        <value>${HIVE_METADATA_PASSWORD}</value>
+        <value>@HIVE_METADATA_PASSWORD@</value>
     </property>
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
