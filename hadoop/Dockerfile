@@ -16,6 +16,8 @@ MAINTAINER Hari Sekhon (https://www.linkedin.com/in/harisekhon)
 
 ARG HADOOP_VERSION=3.2.1
 
+ARG HIVE_VERSION=3.1.2
+
 ARG TAR=hadoop-$HADOOP_VERSION.tar.gz
 
 ENV PATH $PATH:/hadoop/bin
