@@ -63,7 +63,6 @@ RUN set -eux && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN set -eux && \
-    sed -i 's/${HIVE_METADATA_PASSWORD}/'$HIVE_METADATA_PASSWORD'/g' grep '${HIVE_METADATA_PASSWORD}' -rl $HIVE_HOME/conf && \
     $HADOOP_HOME/bin/hadoop fs -mkdir -p /tmp && \
     $HADOOP_HOME/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
     $HADOOP_HOME/bin/hadoop fs -chmod g+w /tmp && \
