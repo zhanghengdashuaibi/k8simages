@@ -1,6 +1,6 @@
 #!/bin/bash
     set -x
-    cd /root/bootstrap
+#    cd /root/bootstrap
 
     # Apply custom config file context
     for cfg in ./*; do
