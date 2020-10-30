@@ -44,7 +44,7 @@ RUN set -eux && \
     rm -fv "$TAR" && \
     { rm -rf hadoop/share/doc; : ; } && \
     yum autoremove -y && \
-    # gets autoremoved, ensure it's added back as Hadoop scripts need it
+    # gets autoremoved,  ensure it's added back as Hadoop scripts need it
     yum clean all && \
     rm -rf /var/cache/yum
 
