@@ -62,9 +62,23 @@ RUN set -eux && \
 	yum clean all && \
 	rm -rf /var/lib/apt/lists/*
 
+RUN set -eux && \
+    sed -i 's/${HIVE_METADATA_PASSWORD}/'$HIVE_METADATA_PASSWORD'/g' `grep '${HIVE_METADATA_PASSWORD}' -rl $HIVE_HOME/conf`	&& \
+    $HADOOP_HOME/bin/hadoop fs -mkdir -p /tmp && \
+    $HADOOP_HOME/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
+    $HADOOP_HOME/bin/hadoop fs -chmod g+w /tmp && \
+    $HADOOP_HOME/bin/hadoop fs -chmod g+w /user/hive/warehouse && \
+    $HIVE_HOME/bin/schematool -dbType mysql -initSchema --verbose &> $HADOOP_CONF_DIR/hive-metastore-initialization.out && \
+    $HIVE_HOME/bin/hiveserver2 & && \
+    $HIVE_HOME/bin/hive --service metastore & && \
+    cp $HIVE_HOME/conf/hive-env.sh.template $HIVE_HOME/conf/hive-env.sh && echo "export HADOOP_CLIENT_OPTS=\"-Xmx512m -XX:MaxPermSize=1024m \$HADOOP_CLIENT_OPTS\"" >> $HIVE_HOME/conf/hive-env.sh && \
+    # keep running
+    sleep infinity
+
+
 #ENV JAVA_HOME="${JAVA_HOME:-/usr}"
 ENV HADOOP_HOME /hadoop
 ENV HADOOP_CONF_DIR /hadoop/etc/hadoop
 ENV HIVE_HOME /hive
 #ENV PATH $JAVA_HOME/bin:$PATH
-CMD ["/bootstrap.sh"]
+#CMD ["/bootstrap.sh"]
