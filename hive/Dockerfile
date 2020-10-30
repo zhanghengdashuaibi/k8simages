@@ -71,7 +71,8 @@ RUN set -eux && \
     $HIVE_HOME/bin/schematool -dbType mysql -initSchema --verbose &> $HADOOP_CONF_DIR/hive-metastore-initialization.out && \
     $HIVE_HOME/bin/hiveserver2 & && \
     $HIVE_HOME/bin/hive --service metastore & && \
-    cp $HIVE_HOME/conf/hive-env.sh.template $HIVE_HOME/conf/hive-env.sh && echo "export HADOOP_CLIENT_OPTS=\"-Xmx512m -XX:MaxPermSize=1024m \$HADOOP_CLIENT_OPTS\"" >> $HIVE_HOME/conf/hive-env.sh && \
+    cp $HIVE_HOME/conf/hive-env.sh.template $HIVE_HOME/conf/hive-env.sh && \
+    echo "export HADOOP_CLIENT_OPTS=\"-Xmx512m -XX:MaxPermSize=1024m \$HADOOP_CLIENT_OPTS\"" >> $HIVE_HOME/conf/hive-env.sh && \
     # keep running
     sleep infinity
 
