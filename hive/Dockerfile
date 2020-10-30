@@ -67,13 +67,11 @@ RUN set -eux && \
     /hadoop/bin/hadoop fs -mkdir -p /user/hive/warehouse && \
     /hadoop/bin/hadoop fs -chmod g+w /tmp && \
     /hadoop/bin/hadoop fs -chmod g+w /user/hive/warehouse && \
-    /hive/bin/schematool -dbType mysql -initSchema --verbose &> /hadoop/etc/hadoop/hive-metastore-initialization.out && \
-    /hive/bin/hiveserver2 & && \
-    /hive/bin/hive --service metastore & && \
-    cp /hive/conf/hive-env.sh.template /hive/conf/hive-env.sh && \
-    echo "export HADOOP_CLIENT_OPTS=\"-Xmx512m -XX:MaxPermSize=1024m \$HADOOP_CLIENT_OPTS\"" >> /hive/conf/hive-env.sh && \
-    # keep running
-    sleep infinity
+#    /hive/bin/schematool -dbType mysql -initSchema --verbose &> /hadoop/etc/hadoop/hive-metastore-initialization.out && \
+#    /hive/bin/hiveserver2 & && \
+#    /hive/bin/hive --service metastore & && \
+#    cp /hive/conf/hive-env.sh.template /hive/conf/hive-env.sh && \
+#    echo "export HADOOP_CLIENT_OPTS=\"-Xmx512m -XX:MaxPermSize=1024m \$HADOOP_CLIENT_OPTS\"" >> /hive/conf/hive-env.sh
 
 
 #ENV JAVA_HOME="${JAVA_HOME:-/usr}"
