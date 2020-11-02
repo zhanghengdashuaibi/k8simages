@@ -91,19 +91,19 @@ RUN set -eux && \
                /home/yarn/.ssh
 
 #hive
-RUN set -eux && \
-    yum install -y wget && \
-	wget https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz && \
-	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	ln -sv "apache-hive-3.1.2-bin" hive && \
-	cp /hadoop/share/hadoop/common/lib/guava-27.0-jre.jar /hive/lib/ && \
-	rm -rf /hive/lib/guava-19.0.jar && \
-#	mv apache-hive-$HIVE_VERSION-bin hive && \
-	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O /hive/lib/mysql-connector-java-8.0.20.jar && \
-	yum remove -y wget && \
-	yum clean all && \
-	rm -rf /var/lib/apt/lists/*
+#RUN set -eux && \
+#    yum install -y wget && \
+#	wget https://mirrors.tuna.tsinghua.edu.cn/apache/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz && \
+#	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
+#	ln -sv "apache-hive-3.1.2-bin" hive && \
+#	cp /hadoop/share/hadoop/common/lib/guava-27.0-jre.jar /hive/lib/ && \
+#	rm -rf /hive/lib/guava-19.0.jar && \
+##	mv apache-hive-$HIVE_VERSION-bin hive && \
+#	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
+#	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O /hive/lib/mysql-connector-java-8.0.20.jar && \
+#	yum remove -y wget && \
+#	yum clean all && \
+#	rm -rf /var/lib/apt/lists/*
 
 
 #COPY ./hive-site.xml /hive/conf/hive-site.xml
