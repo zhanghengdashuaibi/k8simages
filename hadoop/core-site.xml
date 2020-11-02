@@ -3,7 +3,7 @@
     <property>
         <!-- 默认文件系统的名称。通常指定namenode的URI地址，包括主机和端口 -->
         <name>fs.defaultFS</name>
-        <value>hdfs://@HDFS_MASTER_SERVICE@/</value>
+        <value>hdfs://hadoop-hdfs-master:8020</value>
     </property>
     <property>
         <!-- 指定 hadoop 集群存储临时文件的目录 -->
