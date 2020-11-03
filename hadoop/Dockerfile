@@ -79,6 +79,7 @@ RUN set -eux && \
     chown -R hdfs:hadoop /home/hadoop/tmp && \
     chgrp -R hadoop /hadoop/logs && \
     chmod -R 0770 /hadoop/logs && \
+    chmod -R 775 /home/hadoop/tmp && \
     mkdir -p /root/.ssh \
           /home/hdfs/.ssh \
           /home/yarn/.ssh && \
