@@ -95,6 +95,9 @@ RUN set -eux \
 
 # Configure container
 COPY docker-entrypoint.sh /
+RUN set -eux && \
+    chmod 777  /docker-entrypoint.sh && \
+    chown -R flink /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 EXPOSE 6123 8081
 CMD ["help"]
