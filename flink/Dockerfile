@@ -58,10 +58,10 @@ WORKDIR $FLINK_HOME
 
 # Install Flink
 RUN set -ex; \
-  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar \
-  wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-hive_2.11/1.11.2/flink-connector-hive_2.11-1.11.2.jar \
-  wget https://repo1.maven.org/maven2/org/apache/hive/hive-exec/3.1.2/hive-exec-3.1.2.jar \
-  wget https://repo1.maven.org/maven2/org/apache/thrift/libfb303/0.9.3/libfb303-0.9.3.jar \
+  wget -nv -O https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar \
+  wget -nv -O https://repo1.maven.org/maven2/org/apache/flink/flink-connector-hive_2.11/1.11.2/flink-connector-hive_2.11-1.11.2.jar \
+  wget -nv -O https://repo1.maven.org/maven2/org/apache/hive/hive-exec/3.1.2/hive-exec-3.1.2.jar \
+  wget -nv -O https://repo1.maven.org/maven2/org/apache/thrift/libfb303/0.9.3/libfb303-0.9.3.jar \
   cp /opt/flink/flink-connector-hive_2.11-1.11.2.jar /opt/flink/lib/ \
   cp /opt/flink/hive-exec-3.1.2.jar /opt/flink/lib/ \
   cp /opt/flink/libfb303-0.9.3.jar /opt/flink/lib/ \
