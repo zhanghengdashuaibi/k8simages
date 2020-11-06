@@ -83,19 +83,19 @@ RUN set -ex; \
 #flink插件包
 RUN set -eux && \
   apt-get -y install wget && \
-  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar && \
+#  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar && \
   wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-hive_2.11/1.11.2/flink-connector-hive_2.11-1.11.2.jar && \
   wget https://repo1.maven.org/maven2/org/apache/hive/hive-exec/3.1.2/hive-exec-3.1.2.jar && \
   wget https://repo1.maven.org/maven2/org/apache/thrift/libfb303/0.9.3/libfb303-0.9.3.jar && \
 #  wget https://repo1.maven.org/maven2/org/apache/flink/flink-shaded-hadoop-2-uber/2.8.3-10.0/flink-shaded-hadoop-2-uber-2.8.3-10.0.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/3.2.1/hadoop-common-3.2.1.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-hdfs/3.2.1/hadoop-hdfs-3.2.1.jar && \
-  cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar /opt/flink/lib/ && \
+#  wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/3.2.1/hadoop-common-3.2.1.jar && \
+#  wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-hdfs/3.2.1/hadoop-hdfs-3.2.1.jar && \
+#  cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-connector-hive_2.11-1.11.2.jar /opt/flink/lib/ && \
   cp /opt/flink/hive-exec-3.1.2.jar /opt/flink/lib/ && \
   cp /opt/flink/libfb303-0.9.3.jar /opt/flink/lib/ && \
-  cp /opt/flink/hadoop-common-3.2.1.jar /opt/flink/lib/ && \
-  cp /opt/flink/hadoop-hdfs-3.2.1.jar /opt/flink/lib/ && \
+#  cp /opt/flink/hadoop-common-3.2.1.jar /opt/flink/lib/ && \
+#  cp /opt/flink/hadoop-hdfs-3.2.1.jar /opt/flink/lib/ && \
   apt-get remove -y wget && \
   rm -rf /var/lib/apt/lists/*
 
