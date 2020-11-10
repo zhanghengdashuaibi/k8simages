@@ -97,7 +97,7 @@ RUN set -ex; \
 #  cp /opt/flink/flink-table-planner_2.11-1.11.2.jar /opt/flink/lib/ && \
 #  cp /opt/flink/flink-table-planner-blink_2.11-1.11.2.jar /opt/flink/lib/ && \
 #  apt-get remove -y wget && \
-#  rm -rf /var/lib/apt/lists/*
+#  rm -rf /var/lib/apt/lists/* 
 
 # Configure container
 COPY docker-entrypoint.sh /
