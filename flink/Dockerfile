@@ -97,6 +97,7 @@ RUN set -eux && \
   cp /opt/flink/flink-table-planner-blink_2.11-1.11.2.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-table-planner_2.11-1.11.2.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.2.jar /opt/flink/lib/ && \
+  rm -rf /opt/flink/lib/flink-table-blink_2.11-1.11.2.jar && \
   apt-get remove -y wget && \
   rm -rf /var/lib/apt/lists/*
 
