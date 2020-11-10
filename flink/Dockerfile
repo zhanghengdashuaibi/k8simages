@@ -80,7 +80,7 @@ RUN set -ex; \
   \
   chown -R flink:flink .;
 
-#flink插件包
+#flink插件包 封装
 RUN set -eux && \
   apt-get -y install wget && \
 #  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar && \
