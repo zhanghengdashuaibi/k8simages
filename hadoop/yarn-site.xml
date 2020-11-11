@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <configuration>
     <property>
-        <!--配置 NodeManager 上运行的附属服务。需要配置成 mapreduce_shuffle 后才可以在 Yarn 上运行 MapReduce 程序。-->
+        <!--配置 NodeManager 上运行的附属服务。 需要配置成 mapreduce_shuffle 后才可以在 Yarn 上运行 MapReduce 程序。-->
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
     </property>
