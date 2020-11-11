@@ -11,7 +11,7 @@
     </property>
     <property>
         <name>yarn.resourcemanager.hostname</name>
-        <value>hadoop-yarn-master.hadoop:8032</value>
+        <value>hadoop-yarn-master.hadoop</value>
     </property>
     <property>
         <name>yarn.resourcemanager.bind-host</name>
