@@ -84,20 +84,20 @@ RUN set -ex; \
 RUN set -eux && \
   apt-get -y install wget && \
 #  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar && \
-#  wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-hive_2.11/1.11.2/flink-connector-hive_2.11-1.11.2.jar && \
-#  wget https://repo1.maven.org/maven2/org/apache/hive/hive-exec/3.1.2/hive-exec-3.1.2.jar && \
-#  wget https://repo1.maven.org/maven2/org/apache/thrift/libfb303/0.9.3/libfb303-0.9.3.jar && \
+  wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-hive_2.11/1.11.2/flink-connector-hive_2.11-1.11.2.jar && \
+  wget https://repo1.maven.org/maven2/org/apache/hive/hive-exec/3.1.2/hive-exec-3.1.2.jar && \
+  wget https://repo1.maven.org/maven2/org/apache/thrift/libfb303/0.9.3/libfb303-0.9.3.jar && \
 #  wget https://repo1.maven.org/maven2/org/apache/flink/flink-hadoop-compatibility_2.11/1.11.2/flink-hadoop-compatibility_2.11-1.11.2.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/flink/flink-table-planner_2.11/1.11.2/flink-table-planner_2.11-1.11.2.jar && \
+#  wget https://repo1.maven.org/maven2/org/apache/flink/flink-table-planner_2.11/1.11.2/flink-table-planner_2.11-1.11.2.jar && \
   wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka_2.11/1.11.2/flink-sql-connector-kafka_2.11-1.11.2.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/flink/flink-table-planner-blink_2.11/1.11.2/flink-table-planner-blink_2.11-1.11.2.jar && \
+#  wget https://repo1.maven.org/maven2/org/apache/flink/flink-table-planner-blink_2.11/1.11.2/flink-table-planner-blink_2.11-1.11.2.jar && \
 #  cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar /opt/flink/lib/ && \
-#  cp /opt/flink/flink-connector-hive_2.11-1.11.2.jar /opt/flink/lib/ && \
-#  cp /opt/flink/hive-exec-3.1.2.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-table-planner-blink_2.11-1.11.2.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-table-planner_2.11-1.11.2.jar /opt/flink/lib/ && \
+  cp /opt/flink/flink-connector-hive_2.11-1.11.2.jar /opt/flink/lib/ && \
+  cp /opt/flink/hive-exec-3.1.2.jar /opt/flink/lib/ && \
+#  cp /opt/flink/flink-table-planner-blink_2.11-1.11.2.jar /opt/flink/lib/ && \
+  cp /opt/flink/libfb303-0.9.3.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.2.jar /opt/flink/lib/ && \
-  rm -rf /opt/flink/lib/flink-table-blink_2.11-1.11.2.jar && \
+#  rm -rf /opt/flink/lib/flink-table-blink_2.11-1.11.2.jar && \
   apt-get remove -y wget && \
   rm -rf /var/lib/apt/lists/*
 
