@@ -106,8 +106,6 @@ RUN set -eux && \
 #  rm -rf /var/lib/apt/lists/*
 
 
-WORKDIR /
-
 #hadoop
 RUN set -eux && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
@@ -128,7 +126,7 @@ RUN set -eux && \
 
 #hadoop--->flink
 RUN set -eux && \
-    cp -r /hadoop/share/hadoop/ /opt/flink/lib/
+    cp -r /opt/flink/hadoop/share/hadoop/ /opt/flink/lib/
 
 # Configure container
 COPY docker-entrypoint.sh /
