@@ -128,7 +128,8 @@ RUN set -eux && \
 RUN set -eux && \
     cp -r /opt/flink/hadoop/share/hadoop/hdfs /opt/flink/lib/ && \
     cp -r /opt/flink/hadoop/share/hadoop/tools /opt/flink/lib/ && \
-    cp -r /opt/flink/hadoop/share/hadoop/yarn /opt/flink/lib/
+    cp -r /opt/flink/hadoop/share/hadoop/yarn /opt/flink/lib/ && \
+    rm -rf /opt/flink/lib/hdfs/lib/commons-cli-1.2.jar
 
 # Configure container
 COPY docker-entrypoint.sh /
