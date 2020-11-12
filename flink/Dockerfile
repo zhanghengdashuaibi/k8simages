@@ -107,6 +107,7 @@ RUN set -eux && \
 
 
 WORKDIR /
+
 #hadoop
 RUN set -eux && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
@@ -125,6 +126,7 @@ RUN set -eux && \
     apt-get remove -y wget && \
     rm -rf /var/lib/apt/lists/*
 
+#hadoop--->flink
 RUN set -eux && \
     cp -r /hadoop/share/hadoop/ /opt/flink/lib/
 
