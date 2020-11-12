@@ -102,13 +102,12 @@ RUN set -eux && \
 #  cp /opt/flink/libfb303-0.9.3.jar /opt/flink/lib/ && \
 #  cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.2.jar /opt/flink/lib/ && \
 #  rm -rf /opt/flink/lib/flink-table-blink_2.11-1.11.2.jar && \
-  apt-get remove -y wget && \
-  rm -rf /var/lib/apt/lists/*
+#  apt-get remove -y wget && \
+#  rm -rf /var/lib/apt/lists/*
 
 
 #hadoop
 RUN set -eux && \
-    apt-get -y install wget && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
     #                  but this breaks stuff later because the link will not point to the right dir
     #                  (and is also the wrong version for the tag)
