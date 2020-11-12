@@ -106,6 +106,7 @@ RUN set -eux && \
 #  rm -rf /var/lib/apt/lists/*
 
 
+WORKDIR /
 #hadoop
 RUN set -eux && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
