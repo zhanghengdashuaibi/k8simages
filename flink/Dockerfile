@@ -108,7 +108,7 @@ RUN set -eux && \
 
 #hadoop
 RUN set -eux && \
-    yum install -y wget hostname && \
+    yum install -y wget && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
     #                  but this breaks stuff later because the link will not point to the right dir
     #                  (and is also the wrong version for the tag)
@@ -124,7 +124,6 @@ RUN set -eux && \
     { rm -rf hadoop/share/doc; : ; } && \
     yum autoremove -y && \
     # gets autoremoved, ensure it's added back as Hadoop scripts need it
-    yum install -y hostname && \
     yum clean all && \
     rm -rf /var/cache/yum
 
