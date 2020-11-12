@@ -18,6 +18,10 @@
 
 FROM openjdk:8-jre
 
+ARG HADOOP_VERSION=3.2.1
+ARG TAR=hadoop-$HADOOP_VERSION.tar.gz
+
+
 # Install dependencies
 RUN set -ex; \
   apt-get update; \
@@ -83,23 +87,50 @@ RUN set -ex; \
 #flink插件包 封装
 RUN set -eux && \
   apt-get -y install wget && \
-#  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-hive_2.11/1.11.2/flink-connector-hive_2.11-1.11.2.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/hive/hive-exec/3.1.2/hive-exec-3.1.2.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/thrift/libfb303/0.9.3/libfb303-0.9.3.jar && \
+  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.2/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar && \
+#  wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-hive_2.11/1.11.2/flink-connector-hive_2.11-1.11.2.jar && \
+#  wget https://repo1.maven.org/maven2/org/apache/hive/hive-exec/3.1.2/hive-exec-3.1.2.jar && \
+#  wget https://repo1.maven.org/maven2/org/apache/thrift/libfb303/0.9.3/libfb303-0.9.3.jar && \
 #  wget https://repo1.maven.org/maven2/org/apache/flink/flink-hadoop-compatibility_2.11/1.11.2/flink-hadoop-compatibility_2.11-1.11.2.jar && \
 #  wget https://repo1.maven.org/maven2/org/apache/flink/flink-table-planner_2.11/1.11.2/flink-table-planner_2.11-1.11.2.jar && \
-  wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka_2.11/1.11.2/flink-sql-connector-kafka_2.11-1.11.2.jar && \
+#  wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka_2.11/1.11.2/flink-sql-connector-kafka_2.11-1.11.2.jar && \
 #  wget https://repo1.maven.org/maven2/org/apache/flink/flink-table-planner-blink_2.11/1.11.2/flink-table-planner-blink_2.11-1.11.2.jar && \
-#  cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-connector-hive_2.11-1.11.2.jar /opt/flink/lib/ && \
-  cp /opt/flink/hive-exec-3.1.2.jar /opt/flink/lib/ && \
+  cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar /opt/flink/lib/ && \
+#  cp /opt/flink/flink-connector-hive_2.11-1.11.2.jar /opt/flink/lib/ && \
+#  cp /opt/flink/hive-exec-3.1.2.jar /opt/flink/lib/ && \
 #  cp /opt/flink/flink-table-planner-blink_2.11-1.11.2.jar /opt/flink/lib/ && \
-  cp /opt/flink/libfb303-0.9.3.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.2.jar /opt/flink/lib/ && \
+#  cp /opt/flink/libfb303-0.9.3.jar /opt/flink/lib/ && \
+#  cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.2.jar /opt/flink/lib/ && \
 #  rm -rf /opt/flink/lib/flink-table-blink_2.11-1.11.2.jar && \
   apt-get remove -y wget && \
   rm -rf /var/lib/apt/lists/*
+
+
+#hadoop
+RUN set -eux && \
+    yum install -y wget hostname && \
+    # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
+    #                  but this breaks stuff later because the link will not point to the right dir
+    #                  (and is also the wrong version for the tag)
+    wget -t 10 --max-redirect 1 --retry-connrefused -O "$TAR" "http://www.apache.org/dyn/closer.lua?filename=hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-$HADOOP_VERSION.tar.gz&action=download" || \
+    wget -t 10 --max-redirect 1 --retry-connrefused -O "$TAR" "http://archive.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-$HADOOP_VERSION.tar.gz" && \
+    tar zxf "$TAR" && \
+    # check tarball was extracted to the right place, helps ensure it's the right version and the link will work
+    test -d "hadoop-$HADOOP_VERSION" && \
+    ln -sv "hadoop-$HADOOP_VERSION" hadoop && \
+    mkdir /etc/hadoop && \
+    ln -s /hadoop/etc/hadoop /etc/hadoop/conf && \
+    rm -fv "$TAR" && \
+    { rm -rf hadoop/share/doc; : ; } && \
+    yum autoremove -y && \
+    # gets autoremoved, ensure it's added back as Hadoop scripts need it
+    yum install -y hostname && \
+    yum clean all && \
+    rm -rf /var/cache/yum
+
+
+RUN set -eux && \
+    cp -r /hadoop/share/hadoop/ /opt/flink/lib/
 
 # Configure container
 COPY docker-entrypoint.sh /
