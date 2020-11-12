@@ -126,7 +126,9 @@ RUN set -eux && \
 
 #hadoop--->flink
 RUN set -eux && \
-    cp -r /opt/flink/hadoop/share/hadoop/ /opt/flink/lib/
+    cp -r /opt/flink/hadoop/share/hadoop/hdfs /opt/flink/lib/ && \
+    cp -r /opt/flink/hadoop/share/hadoop/tools /opt/flink/lib/ && \
+    cp -r /opt/flink/hadoop/share/hadoop/yarn /opt/flink/lib/
 
 # Configure container
 COPY docker-entrypoint.sh /
