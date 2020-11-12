@@ -124,7 +124,7 @@ RUN set -eux && \
     apt-get remove -y wget && \
     rm -rf /var/lib/apt/lists/*
 
-#hadoop--->flink
+#hadoop---->flink
 RUN set -eux && \
     cp -r /opt/flink/hadoop/share/hadoop/hdfs /opt/flink/lib/ && \
     cp -r /opt/flink/hadoop/share/hadoop/tools /opt/flink/lib/ && \
