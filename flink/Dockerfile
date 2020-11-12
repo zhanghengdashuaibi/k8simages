@@ -108,7 +108,7 @@ RUN set -eux && \
 
 #hadoop
 RUN set -eux && \
-    yum install -y wget && \
+    apt-get -y install wget && \
     # --max-redirect - some apache mirrors redirect a couple times and give you the latest version instead
     #                  but this breaks stuff later because the link will not point to the right dir
     #                  (and is also the wrong version for the tag)
@@ -122,11 +122,8 @@ RUN set -eux && \
     ln -s /hadoop/etc/hadoop /etc/hadoop/conf && \
     rm -fv "$TAR" && \
     { rm -rf hadoop/share/doc; : ; } && \
-    yum autoremove -y && \
-    # gets autoremoved, ensure it's added back as Hadoop scripts need it
-    yum clean all && \
-    rm -rf /var/cache/yum
-
+    apt-get remove -y wget && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN set -eux && \
     cp -r /hadoop/share/hadoop/ /opt/flink/lib/
