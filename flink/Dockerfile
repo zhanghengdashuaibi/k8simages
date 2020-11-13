@@ -127,8 +127,12 @@ RUN set -eux && \
 #hadoop--->flink
 RUN set -eux && \
     cp -r /opt/flink/hadoop/share/hadoop/* /opt/flink/lib/ && \
+    chown -R flink:flink . && \
     rm -rf /opt/flink/lib/hdfs/lib/commons-cli-1.2.jar && \
     rm -rf /opt/flink/lib/common/lib/commons-cli-1.2.jar && \
+    rm -rf /opt/flink/lib/common/lib/log4j-1.2.17.jar && \
+    rm -rf /opt/flink/lib/hdfs/lib/log4j-1.2.17.jar && \
+    rm -rf /opt/flink/lib/common/lib/slf4j-log4j12-1.7.25.jar && \
     rm -rf /opt/flink/hadoop && \
     rm -rf /opt/flink/hadoop-3.2.1
 
