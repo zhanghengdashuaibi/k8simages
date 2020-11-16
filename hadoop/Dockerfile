@@ -74,17 +74,23 @@ RUN set -eux && \
     mkdir -p /dfs/data && \
     mkdir -p /home/hadoop/tmp && \
     mkdir -p /hadoop/logs && \
-    chown -R hdfs:hadoop /dfs/name && \
-    chown -R hdfs:hadoop /dfs/data && \
-    chown -R hdfs:hadoop /home/hadoop/tmp && \
-    chgrp -R hadoop /hadoop/logs && \
+#    chown -R hdfs:hadoop /dfs/name && \
+#    chown -R hdfs:hadoop /dfs/data && \
+#    chown -R hdfs:hadoop /home/hadoop/tmp && \
+    chown -R root:root /dfs/name && \
+    chown -R root:root /dfs/data && \
+    chown -R root:root /home/hadoop/tmp && \
+#    chgrp -R hadoop /hadoop/logs && \
+    chgrp -R root /hadoop/logs && \
     chmod -R 0770 /hadoop/logs && \
     chmod -R 775 /home/hadoop/tmp && \
     mkdir -p /root/.ssh \
           /home/hdfs/.ssh \
           /home/yarn/.ssh && \
-    chown hdfs /home/hdfs/.ssh && \
-    chown yarn /home/yarn/.ssh && \
+#    chown hdfs /home/hdfs/.ssh && \
+#    chown yarn /home/yarn/.ssh && \
+    chown root /home/hdfs/.ssh && \
+    chown root /home/yarn/.ssh && \
     chmod 777  /entrypoint.sh && \
     chmod 777  /init.sh && \
     chmod 0700 /root/.ssh \
