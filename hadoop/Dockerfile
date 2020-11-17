@@ -12,7 +12,7 @@
 #
 
 FROM harisekhon/centos-java:latest
-MAINTAINER Hari Sekhon (https://www.linkedin.com/in/harisekhon)
+#MAINTAINER Hari Sekhon (https://www.linkedin.com/in/harisekhon)
 
 ARG HADOOP_VERSION=3.2.1
 
@@ -67,24 +67,24 @@ RUN set -eux && \
     #/hadoop/bin/hadoop namenode -format && \
     # Hadoop 2.x
     /hadoop/bin/hdfs namenode -format && \
-    groupadd hadoop && \
-    useradd -g hadoop hdfs && \
-    useradd -g hadoop yarn && \
+#    groupadd hadoop && \
+#    useradd -g hadoop hdfs && \
+#    useradd -g hadoop yarn && \
     mkdir -p /dfs/name && \
     mkdir -p /dfs/data && \
     mkdir -p /home/hadoop/tmp && \
     mkdir -p /hadoop/logs && \
-    chown -R hdfs:hadoop /dfs/name && \
-    chown -R hdfs:hadoop /dfs/data && \
-    chown -R hdfs:hadoop /home/hadoop/tmp && \
-    chgrp -R hadoop /hadoop/logs && \
+#    chown -R hdfs:hadoop /dfs/name && \
+#    chown -R hdfs:hadoop /dfs/data && \
+#    chown -R hdfs:hadoop /home/hadoop/tmp && \
+#    chgrp -R hadoop /hadoop/logs && \
     chmod -R 0770 /hadoop/logs && \
     chmod -R 775 /home/hadoop/tmp && \
     mkdir -p /root/.ssh \
           /home/hdfs/.ssh \
           /home/yarn/.ssh && \
-    chown hdfs /home/hdfs/.ssh && \
-    chown yarn /home/yarn/.ssh && \
+#    chown hdfs /home/hdfs/.ssh && \
+#    chown yarn /home/yarn/.ssh && \
     chmod 777  /entrypoint.sh && \
     chmod 777  /init.sh && \
     chmod 0700 /root/.ssh \
