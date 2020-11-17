@@ -93,6 +93,7 @@ RUN set -eux && \
     chown root /home/yarn/.ssh && \
     chmod 777  /entrypoint.sh && \
     chmod 777  /init.sh && \
+    chown root /init.sh && \
     chmod 0700 /root/.ssh \
                /home/hdfs/.ssh \
                /home/yarn/.ssh
@@ -107,6 +108,7 @@ RUN set -eux && \
 	rm -rf /hive/lib/guava-19.0.jar && \
 #	mv apache-hive-$HIVE_VERSION-bin hive && \
 	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
+	rm -rf apache-hive-3.1.2-bin && \
 	wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar -O /hive/lib/mysql-connector-java-8.0.20.jar && \
 	yum remove -y wget && \
 	yum clean all && \
