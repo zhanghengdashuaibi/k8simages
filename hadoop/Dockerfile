@@ -67,9 +67,9 @@ RUN set -eux && \
     #/hadoop/bin/hadoop namenode -format && \
     # Hadoop 2.x
     /hadoop/bin/hdfs namenode -format && \
-    groupadd hadoop && \
-    useradd -g hadoop hdfs && \
-    useradd -g hadoop yarn && \
+    groupadd -g 4000 hadoop && \
+    useradd -g 4001 hadoop hdfs && \
+    useradd -g 4002 hadoop yarn && \
     mkdir -p /dfs/name && \
     mkdir -p /dfs/data && \
     mkdir -p /home/hadoop/tmp && \
