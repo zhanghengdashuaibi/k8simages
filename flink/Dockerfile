@@ -95,7 +95,7 @@ RUN set -eux && \
   cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.2.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-format-changelog-json-1.1.0.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-sql-connector-mysql-cdc-1.1.0.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.2.jar /opt/flink/lib/ &&
+  cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.2.jar /opt/flink/lib/
 #  cp /opt/flink/flink-connector-elasticsearch7_2.11-1.11.2.jar /opt/flink/lib/
 #  apt-get remove -y wget && \
 #  rm -rf /var/lib/apt/lists/*
