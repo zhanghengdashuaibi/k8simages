@@ -82,6 +82,8 @@ RUN set -ex; \
   tar -xf flink.tgz --strip-components=1; \
   rm flink.tgz; \
   \
+  groupadd -g 5000 flink && \
+  useradd -u 5001 -g 5000  flink && \
   chown -R flink:flink .;
 
 #flink插件包 封装
