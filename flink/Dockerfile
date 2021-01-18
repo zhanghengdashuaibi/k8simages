@@ -101,8 +101,8 @@ RUN set -eux && \
   cp /opt/flink/mysql-connector-java-8.0.20.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-connector-jdbc_2.11-1.11.3.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-sql-connector-elasticsearch7_2.11-1.11.3.jar /opt/flink/lib/ && \
-  mkdir /opt/flinktmp && \
-  cp -r /opt/flink/ /opt/flinktmp
+#  mkdir /opt/flinktmp && \
+#  cp -r /opt/flink/ /opt/flinktmp
 #  apt-get remove -y wget && \
 #  rm -rf /var/lib/apt/lists/*
 
