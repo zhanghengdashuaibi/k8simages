@@ -89,14 +89,14 @@ RUN set -eux && \
   apt-get -y install wget && \
   wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.11.3/flink-sql-connector-hive-3.1.2_2.11-1.11.3.jar && \
   wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka_2.11/1.11.3/flink-sql-connector-kafka_2.11-1.11.3.jar && \
-  wget https://repo1.maven.org/maven2/com/alibaba/ververica/flink-sql-connector-mysql-cdc/1.1.1/flink-sql-connector-mysql-cdc-1.1.1.jar && \
-  wget https://repo1.maven.org/maven2/com/alibaba/ververica/flink-format-changelog-json/1.1.1/flink-format-changelog-json-1.1.1.jar && \
+  wget https://repo1.maven.org/maven2/com/alibaba/ververica/flink-sql-connector-mysql-cdc/1.1.0/flink-sql-connector-mysql-cdc-1.1.0.jar && \
+  wget https://repo1.maven.org/maven2/com/alibaba/ververica/flink-format-changelog-json/1.1.0/flink-format-changelog-json-1.1.0.jar && \
   wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-connector-jdbc_2.11/1.11.3/flink-connector-jdbc_2.11-1.11.3.jar && \
   wget https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar && \
   wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-elasticsearch7_2.11/1.11.3/flink-sql-connector-elasticsearch7_2.11-1.11.3.jar && \
   cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.3.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-format-changelog-json-1.1.1.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-sql-connector-mysql-cdc-1.1.1.jar /opt/flink/lib/ && \
+  cp /opt/flink/flink-format-changelog-json-1.1.0.jar /opt/flink/lib/ && \
+  cp /opt/flink/flink-sql-connector-mysql-cdc-1.1.0.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-sql-connector-kafka_2.11-1.11.3.jar /opt/flink/lib/ && \
   cp /opt/flink/mysql-connector-java-8.0.20.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-connector-jdbc_2.11-1.11.3.jar /opt/flink/lib/ && \
@@ -130,8 +130,8 @@ RUN set -eux && \
     cp -r /opt/flink/hadoop/share/hadoop/* /opt/flink/lib/ && \
     chown -R flink:flink . && \
     rm -rf /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.11.3.jar && \
-    rm -rf /opt/flink/flink-format-changelog-json-1.1.1.jar && \
-    rm -rf /opt/flink/flink-sql-connector-mysql-cdc-1.1.1.jar && \
+    rm -rf /opt/flink/flink-format-changelog-json-1.1.0.jar && \
+    rm -rf /opt/flink/flink-sql-connector-mysql-cdc-1.1.0.jar && \
     rm -rf /opt/flink/flink-sql-connector-kafka_2.11-1.11.3.jar && \
     rm -rf /opt/flink/flink-connector-jdbc_2.11-1.11.3.jar && \
     rm -rf /opt/flink/mysql-connector-java-8.0.20.jar && \
