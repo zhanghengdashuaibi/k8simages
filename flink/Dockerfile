@@ -60,7 +60,7 @@ RUN groupadd --system --gid=9999 flink && \
     useradd --system --home-dir $FLINK_HOME --uid=9999 --gid=flink flink
 WORKDIR $FLINK_HOME
 
-# Install Flink
+## Install Flink
 RUN set -ex; \
   wget -nv -O flink.tgz "$FLINK_TGZ_URL"; \
   \
