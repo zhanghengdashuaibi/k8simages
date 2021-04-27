@@ -23,4 +23,8 @@
         <name>hadoop.proxyuser.root.groups</name>
         <value>*</value>
     </property>
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>root</value>
+    </property>
 </configuration>
