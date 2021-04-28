@@ -108,7 +108,7 @@ RUN set -eux && \
   cp /opt/flink/hudi-flink-bundle_2.11-0.8.0.jar /opt/flink/lib/ && \
   #cp /opt/flink/hudi-flink_2.11-0.8.0.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-parquet_2.11-1.12.2.jar /opt/flink/lib/ && \
-  cp /opt/flink/flink-avro-1.9.3.jar /opt/flink/lib/ && \
+  cp /opt/flink/flink-avro_2.11-1.3.3.jar /opt/flink/lib/ && \
 #  mkdir /opt/flinktmp && \
 #  cp -r /opt/flink/ /opt/flinktmp
 #  apt-get remove -y wget && \
@@ -152,7 +152,7 @@ RUN set -eux && \
     rm -rf /opt/flink/hudi-flink-bundle_2.11-0.8.0.jar && \
     #rm -rf /opt/flink/hudi-flink_2.11-0.8.0.jar && \
     rm -rf /opt/flink/flink-parquet_2.11-1.12.2.jar && \
-    rm -rf /opt/flink/flink-avro-1.9.3.jar && \
+    rm -rf /opt/flink/flink-avro_2.11-1.3.3.jar && \
     rm -rf /opt/flink/hadoop && \
     rm -rf /opt/flink/hadoop-3.2.1
 
