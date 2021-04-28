@@ -95,7 +95,7 @@ RUN set -eux && \
   wget https://repo.maven.apache.org/maven2/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar && \
   wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-elasticsearch7_2.11/1.12.2/flink-sql-connector-elasticsearch7_2.11-1.12.2.jar && \
   wget https://repo.maven.apache.org/maven2/org/apache/hudi/hudi-flink-bundle_2.11/0.8.0/hudi-flink-bundle_2.11-0.8.0.jar && \
-  wget https://repo.maven.apache.org/maven2/org/apache/hudi/hudi-flink_2.11/0.8.0/hudi-flink_2.11-0.8.0.jar && \
+  #wget https://repo.maven.apache.org/maven2/org/apache/hudi/hudi-flink_2.11/0.8.0/hudi-flink_2.11-0.8.0.jar && \
   wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-parquet/1.8.3/flink-parquet-1.8.3.jar && \
   wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-avro/1.9.3/flink-avro-1.9.3.jar && \
   cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.12.2.jar /opt/flink/lib/ && \
@@ -106,7 +106,7 @@ RUN set -eux && \
   cp /opt/flink/flink-connector-jdbc_2.11-1.12.2.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-sql-connector-elasticsearch7_2.11-1.12.2.jar /opt/flink/lib/ && \
   cp /opt/flink/hudi-flink-bundle_2.11-0.8.0.jar /opt/flink/lib/ && \
-  cp /opt/flink/hudi-flink_2.11-0.8.0.jar /opt/flink/lib/ && \
+  #cp /opt/flink/hudi-flink_2.11-0.8.0.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-parquet-1.8.3.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-avro-1.9.3.jar /opt/flink/lib/ && \
 #  mkdir /opt/flinktmp && \
@@ -150,7 +150,7 @@ RUN set -eux && \
     rm -rf /opt/flink/lib/hdfs/lib/log4j-1.2.17.jar && \
     rm -rf /opt/flink/lib/common/lib/slf4j-log4j12-1.7.25.jar && \
     rm -rf /opt/flink/hudi-flink-bundle_2.11-0.8.0.jar && \
-    rm -rf /opt/flink/hudi-flink_2.11-0.8.0.jar && \
+    #rm -rf /opt/flink/hudi-flink_2.11-0.8.0.jar && \
     rm -rf /opt/flink/flink-parquet-1.8.3.jar && \
     rm -rf /opt/flink/flink-avro-1.9.3.jar && \
     rm -rf /opt/flink/hadoop && \
