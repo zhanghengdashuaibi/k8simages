@@ -97,7 +97,7 @@ RUN set -eux && \
   wget https://repo.maven.apache.org/maven2/org/apache/hudi/hudi-flink-bundle_2.11/0.8.0/hudi-flink-bundle_2.11-0.8.0.jar && \
   #wget https://repo.maven.apache.org/maven2/org/apache/hudi/hudi-flink_2.11/0.8.0/hudi-flink_2.11-0.8.0.jar && \
   wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-parquet_2.11/1.12.2/flink-parquet_2.11-1.12.2.jar && \
-  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-avro/1.9.3/flink-avro-1.9.3.jar && \
+  wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-avro_2.11/1.3.3/flink-avro_2.11-1.3.3.jar && \
   cp /opt/flink/flink-sql-connector-hive-3.1.2_2.11-1.12.2.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-format-changelog-json-1.3.0.jar /opt/flink/lib/ && \
   cp /opt/flink/flink-sql-connector-mysql-cdc-1.3.0.jar /opt/flink/lib/ && \
