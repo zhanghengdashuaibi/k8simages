@@ -7,8 +7,6 @@ RUN set -eux && \
 RUN set -eux && \
     yum install -y wget hostname
 
-COPY project /build/
-
 WORKDIR /build
 
 # 下载debezium tar  ddd
