@@ -5,7 +5,7 @@ RUN set -eux && \
     yum install -y openssh-server openssh-clients tar which
     
 RUN set -eux && \
-    yum install -y wget hostname -o build
+    yum install -y wget hostname
 
 COPY project /build/
 
