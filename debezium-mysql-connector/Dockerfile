@@ -1,6 +1,8 @@
 #编译阶段
 FROM harisekhon/centos-java:latest
 
+WORKDIR /
+
 RUN set -eux && \
     yum install -y openssh-server openssh-clients tar which
     
